@@ -1,0 +1,19 @@
+#!/bin/sh
+
+OUTPUT="$(acpi)"
+REMAINING="$(printf '%s' "$OUTPUT" | awk '{print $5}')"
+PERCENTAGE="$(printf '%s' "$OUTPUT" | awk -F', ' '{print $2}')"
+STATUS="$(printf '%s' "$OUTPUT" | awk '{print substr ($3,0,1)}')"
+
+if [ "$STATUS" = "D" ] ; then
+    STATUS="BAT"
+else
+    STATUS="CHR"
+fi
+
+echo "$STATUS $REMAINING [$PERCENTAGE]"
+echo
+
+COLOR=$(( $(printf '%s' "$PERCENTAGE" | sed 's/%//') < 10 ))
+[ "$COLOR" -eq 1 ] && echo \#FF0000 || exit 0
+

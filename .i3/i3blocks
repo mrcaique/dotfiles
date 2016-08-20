@@ -1,0 +1,21 @@
+command=$HOME/dotfiles/.i3/$BLOCK_NAME
+separator_block_width=20
+
+[brightness]
+instance=/usr/bin/light
+interval=1
+
+[volume]
+interval=1
+
+[wireless]
+instance=wlp3s0
+interval=1
+
+[battery]
+interval=30
+
+[date]
+command=date '+%A, %-d %B %Y, %R '
+interval=1
+

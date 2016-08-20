@@ -1,0 +1,10 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+    2) amixer -q  set Master toggle ;;
+    4) amixer -q  sset Master 1%+ ;;
+    5) amixer -q  sset Master 1%- ;;
+esac
+
+amixer get Master -M | awk -F'[][]' '/%/ {print $6, "["$2"]"}'
+
