@@ -182,8 +182,8 @@ bindsym XF86AudioMute           exec amixer -q set Master toggle
 bindsym XF86AudioLowerVolume    exec amixer -q sset Master 1%-
 bindsym XF86AudioRaiseVolume    exec amixer -q sset Master 1%+
 bindsym Print                   exec scrot
-bindsym $mod+Shift+d            exec light -U 2%
-bindsym $mod+Shift+u            exec light -A 2%
+bindsym $mod+Shift+o            exec light -U 2%
+bindsym $mod+Shift+p            exec light -A 2%
 #bindsym XF86MonBrightnessDown   exec light -U 2%
 #bindsym XF86MonBrightnessUp     exec light -A 2%
 # Note: For some reason, the brightness keys (Fn+F5 / Fn+F6) doesn't work in 
