@@ -1,5 +1,21 @@
+" Vundle configuration
+set nocompatible
+filetype off
+
+set rtp+=$HOME/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Plugins
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+
+" Color scheme
+Plugin 'sjl/badwolf'
+
+call vundle#end()
+filetype plugin indent on
+
 colorscheme badwolf
-filetype indent plugin on
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 set autoindent
 set backspace=indent,eol,start
@@ -31,3 +47,7 @@ endfunction
 let g:lightline = {
       \ 'colorscheme': 'seoul256',
       \ }
+
+" Crtl+T to new tab
+nnoremap <C-t>     :tabnew<CR>
+
