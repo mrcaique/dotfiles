@@ -1,6 +1,3 @@
-# Source:
-# https://bbs.archlinux.org/viewtopic.php?pid=70003#p70003
-
 pcm.!default {
     type plug
     slave.pcm "dmixer"
@@ -28,6 +25,6 @@ pcm.dmixer {
 }
 
 ctl.dmixer {
-    type hw
-    card 0
+    type hw;
+    card PCH;
 }
