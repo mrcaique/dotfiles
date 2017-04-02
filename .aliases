@@ -1,2 +1,3 @@
-alias ls='ls --color=auto'
-
+alias ls='ls --color=auto -F'
+alias cal='cal --sunday'
+alias grep='grep --colour'
