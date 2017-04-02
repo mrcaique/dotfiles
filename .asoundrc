@@ -1,3 +1,10 @@
+# Unnecessary if use PulseAudio.
+# If ALSA is configured to use PulseAudio, this file is unnecessary, because
+# it may conflict with /etc/asound.conf generated.
+#
+# More information:
+# https://wiki.archlinux.org/index.php/PulseAudio#ALSA  
+
 pcm.!default {
     type plug
     slave.pcm "dmixer"
@@ -25,6 +32,6 @@ pcm.dmixer {
 }
 
 ctl.dmixer {
-    type hw;
-    card PCH;
+    type hw
+    card PCH
 }
