@@ -6,5 +6,5 @@ case $BLOCK_BUTTON in
     5) amixer -q  sset Master 1%- ;;
 esac
 
-amixer get Master -M | awk -F'[][]' '/%/ {print $6, "["$2"]"}'
+amixer get Master -M | awk -F'[][]' '/%/ {print $4, "["$2"]"}'
 
