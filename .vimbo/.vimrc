@@ -8,32 +8,39 @@ call vundle#begin()
 " Plugins
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'itchyny/lightline.vim'
 
 " Color scheme
-Plugin 'sjl/badwolf'
+Plugin 'whatyouhide/vim-gotham'
 
 call vundle#end()
 filetype plugin indent on
 
-colorscheme badwolf
-highlight ColorColumn ctermbg=0 guibg=lightgrey
-set autoindent
-set backspace=indent,eol,start
-set colorcolumn=80
-set confirm
-set expandtab
-set ignorecase
-set laststatus=2
-set mouse=a
-set nostartofline
-set number
-set pastetoggle=<F2>
-set shiftwidth=4
-set showcmd
-set smartcase
-set tabstop=4
-syntax on
+"Set Gotham City colorscheme and lightline
+colorscheme gotham256
+let g:lightline = { 'colorscheme' : 'gotham256' }
 
+highlight ColorColumn ctermbg=0 guibg=lightgrey
+set autoindent                  "Start next line indented
+set backspace=indent,eol,start  "Make backspace work everywhere
+set colorcolumn=80              "Set a column specifying 80 characters limit per line
+set confirm                     "A prompt will appears after leaving a unsaved section
+set expandtab                   "Convert tabs to spaces
+set ignorecase                  "Ignore uppercase and lowercase in the search
+set laststatus=2                "Display the line status (2: always)
+set mouse=a                     "Mouse support (a:all modes [insert, visual, etc.])
+set nostartofline               "Cursor is fixed in the same column when jumping to other lines
+set number                      "Show line numbers
+set pastetoggle=<F2> 			"Enable/disable pastetogle with F2 key
+set shiftwidth=4 				"Define, with tab key, a 4 space width
+set showcmd 					"Show the commmands typed
+set smartcase 					"Will find only uppercase searches when specified
+set tabstop=4                   "Define indent with size 4
+set clipboard=unnamedplus       "Make the vim clipboard the same as system one
+set cursorline                  "Enable highlight in the current line
+syntax on                       "Enable syntax highlight
+
+"Show options to autocomplete
 function! Tab_Or_Complete()
     if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
         return "\<C-N>"
@@ -50,4 +57,3 @@ let g:lightline = {
 
 " Crtl+T to new tab
 nnoremap <C-t>     :tabnew<CR>
-
