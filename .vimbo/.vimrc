@@ -56,4 +56,10 @@ let g:lightline = {
       \ }
 
 " Crtl+T to new tab
-nnoremap <C-t>     :tabnew<CR>
+nnoremap <C-t> :tabnew<CR>
+
+" Ctrl+A to open NERD Tree
+map <C-a> :NERDTreeToggle<CR>
+
+" Automatically closes vim when NERD Tree is the only file opened
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
