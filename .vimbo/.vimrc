@@ -21,24 +21,60 @@ colorscheme gotham256
 let g:lightline = { 'colorscheme' : 'gotham256' }
 
 highlight ColorColumn ctermbg=0 guibg=lightgrey
-set autoindent                  "Start next line indented
-set backspace=indent,eol,start  "Make backspace work everywhere
-set colorcolumn=80              "Set a column specifying 80 characters limit per line
-set confirm                     "A prompt will appears after leaving a unsaved section
-set expandtab                   "Convert tabs to spaces
-set ignorecase                  "Ignore uppercase and lowercase in the search
-set laststatus=2                "Display the line status (2: always)
-set mouse=a                     "Mouse support (a:all modes [insert, visual, etc.])
-set nostartofline               "Cursor is fixed in the same column when jumping to other lines
-set number                      "Show line numbers
-set pastetoggle=<F2> 			"Enable/disable pastetogle with F2 key
-set shiftwidth=4 				"Define, with tab key, a 4 space width
-set showcmd 					"Show the commmands typed
-set smartcase 					"Will find only uppercase searches when specified
-set tabstop=4                   "Define indent with size 4
-set clipboard=unnamedplus       "Make the vim clipboard the same as system one
-set cursorline                  "Enable highlight in the current line
-syntax on                       "Enable syntax highlight
+
+"Start next line indented
+set autoindent
+
+"Make backspace work everywhere
+set backspace=indent,eol,start
+
+"Set a column specifying 80 characters limit per line
+set colorcolumn=80
+
+"A prompt will appears after leaving a unsaved section
+set confirm
+
+"Convert tabs to spaces
+set expandtab
+
+"Ignore uppercase and lowercase in the search
+set ignorecase
+
+"Display the line status (2: always)
+set laststatus=2
+
+"Mouse support (a:all modes [insert, visual, etc.])
+set mouse=a
+
+"Cursor is fixed in the same column when jumping to other lines
+set nostartofline
+
+"Show line numbers
+set number
+
+"Enable/disable pastetogle with F2 key
+set pastetoggle=<F2>
+
+"Define, with tab key, a 4 space width
+set shiftwidth=4
+
+"Show the commmands typed
+set showcmd
+
+"Will find only uppercase searches when specified
+set smartcase
+
+"Define indent with size 4
+set tabstop=4
+
+"Make the vim clipboard the same as system one
+set clipboard=unnamedplus
+
+"Enable highlight in the current line
+set cursorline
+
+"Enable syntax highlight
+syntax on
 
 "Show options to autocomplete
 function! Tab_Or_Complete()
