@@ -48,18 +48,18 @@ function! Tab_Or_Complete()
         return "\<Tab>"
     endif
 endfunction
+
+" Remap tab key to autocomplete
 :inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 :set dictionary="/usr/share/dict/cracklib-small"
 
-let g:lightline = {
-      \ 'colorscheme': 'seoul256',
-      \ }
-
-" Crtl+T to new tab
+" Remap Crtl+T command to open a new tab
 nnoremap <C-t> :tabnew<CR>
 
-" Ctrl+A to open NERD Tree
+" Remap Ctrl+A command to open NERD Tree
 map <C-a> :NERDTreeToggle<CR>
 
 " Automatically closes vim when NERD Tree is the only file opened
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd bufenter * if (winnr("$") == 1
+            \&& exists("b:NERDTree")
+            \&& b:NERDTree.isTabTree()) | q | endif
