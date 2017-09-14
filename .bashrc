@@ -9,20 +9,9 @@ HISTFILESIZE=1000000
 HISTSIZE=1000000
 HISTTIMEFORMAT='%F %T '
 PROMPT_COMMAND='history -a'
+CC="gcc"
 
 [ -f "$HOME/.aliases" ] && . "$HOME/.aliases"
-
-aur() {
-    pkg="$1.tar.gz"
-    curl --fail -O "https://aur.archlinux.org/cgit/aur.git/snapshot/$pkg"
-    [ "$?" -ne 0 ] && rm -f "$pkg"
-    ex "$pkg"
-    IFS='.' read -r filename _ <<< "$pkg"
-    cd "${filename}" || exit
-    makepkg
-    cd ..
-    rm -f "${filename}" "$pkg"
-}
 
 backup() {
     for file in "$@" ; do
@@ -42,7 +31,11 @@ downiso() {
 }
 
 ll() {
-    ls "$@" | less
+    ls "$@" -lh
+}
+
+lla() {
+    ls "$@" -lah
 }
 
 man() {
@@ -88,21 +81,6 @@ up() {
     cd $d || exit
 }
 
-vm() {
-    [[ ! -f "$HOME/vmdisk" ]] && qemu-img create -f raw "$HOME/vmdisk" 8G
-    qemu-system-x86_64 \
-        -m 1G \
-        -cpu host \
-        -smp 2 \
-        -machine type=pc,accel=kvm \
-        -monitor stdio \
-        -drive file="$HOME/vmdisk",format=raw,if=virtio,cache=none,aio=native \
-        -net user,hostfwd=tcp::10022-:22 \
-        -net nic,model=virtio \
-        -boot menu=on \
-        "$@"
-}
-
 PS1='\[\e[01;37m\][\A]\[\e[0m\]\[\e[00;37m\] '              # [HH:MM]
 PS1+='\[\e[0m\]\[\e[01;34m\]\u\[\e[0m\]\[\e[01;37m\]@\h '   # user@host
 PS1+='\[\e[0m\]\[\e[01;34m\]\w\[\e[0m\]\[\e[00;37m\] '      # absolute path
@@ -112,12 +90,6 @@ if pkgfile 2>/dev/null ; then
     . /usr/share/doc/pkgfile/command-not-found.bash
 fi
 
-#if [ -z "$SSH_AUTH_SOCK" ] ; then
- #   eval `ssh-agent -s`
-  #  ssh-add
-#fi
-
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx
 
 [[ -f "$HOME/.Xresources" ]] && xrdb -merge "$HOME/.Xresources"
-
