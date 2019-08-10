@@ -175,7 +175,7 @@ bar {
     }
     separator_symbol "·"
     position top
-    status_command i3blocks -c $HOME/dotfiles/.i3/i3blocks
+    status_command i3blocks -c $HOME/dotfiles/i3/i3blocks
 }
 
 bindsym XF86AudioMute           exec amixer -q set Master toggle
@@ -188,4 +188,3 @@ bindsym $mod+Shift+p            exec light -A 2%
 #bindsym XF86MonBrightnessUp     exec light -A 2%
 # Note: For some reason, the brightness keys (Fn+F5 / Fn+F6) doesn't work in 
 # my actual operating system.
-

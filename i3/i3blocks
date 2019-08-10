@@ -1,4 +1,4 @@
-command=$HOME/dotfiles/.i3/$BLOCK_NAME
+command=$HOME/dotfiles/i3/$BLOCK_NAME
 separator_block_width=20
 
 [brightness]
